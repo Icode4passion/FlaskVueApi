@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <!-- Load Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Load Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <!-- Load script file.  'defer' loads after body is generated -->
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Movie Data</title>
+    
+</head>
+
+<body>
+    <h1>MovieData</h1> 
+    <div id="app">
+      <div class="search-wrapper">
+        <input type="text" v-model="moviename" placeholder="Search title..or director"/>            
+      </div>
+      <div class="wrapper">
+        <div class="card" v-for="post in filterMovieName">          
+          <div class="descriptions">            
+            <a  v-bind:href="[[post.movie_url]]" target="_blank"> 
+              <img v-bind:src="[[post.movie_image]]" alt="">          
+              <!-- <small>[[post.movie_director]]</small>                              -->
+            </a>            
+          </div>            
+        </div>
+      </div>
+    </div>    
+</body>
+</html>
